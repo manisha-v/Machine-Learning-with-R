@@ -3,8 +3,8 @@ library(cluster) # clusplot()
 library(ggplot2)
 library(ggthemes)
 
-df1 <- read.csv('D:\\R-Course-HTML-Notes\\R-for-Data-Science-and-Machine-Learning\\Training Exercises\\Machine Learning Projects\\CSV files for ML Projects\\winequality-red.csv', sep = ';')
-df2 <- read.csv('D:\\R-Course-HTML-Notes\\R-for-Data-Science-and-Machine-Learning\\Training Exercises\\Machine Learning Projects\\CSV files for ML Projects\\winequality-white.csv', sep = ';')
+df1 <- read.csv('CSV files for ML Projects\\winequality-red.csv', sep = ';')
+df2 <- read.csv('CSV files for ML Projects\\winequality-white.csv', sep = ';')
 
 #add a label column to both df1 and df2 indicating a label 'red' or 'white'
 
