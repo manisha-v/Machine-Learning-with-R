@@ -1,7 +1,7 @@
 library(ggplot2)
 library(ggthemes)
 
-df <- read.csv('bikeshare.csv')
+df <- read.csv('CSV files for ML Projects\\bikeshare.csv')
 print(head(df))
 
 #Create a scatter plot of count vs temp. Set a good alpha value
