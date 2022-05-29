@@ -3,7 +3,7 @@ library(ggplot2)
 library(caTools)
 library()
 
-df <- read.csv('D:\\R-Course-HTML-Notes\\R-for-Data-Science-and-Machine-Learning\\Training Exercises\\Machine Learning Projects\\CSV files for ML Projects\\bank_note_data.csv')
+df <- read.csv('CSV files for ML Projects\\bank_note_data.csv')
 head(df)
 
 #Train Test Split
