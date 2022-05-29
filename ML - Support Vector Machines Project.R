@@ -3,7 +3,7 @@ library(ggplot2)
 library(ggthemes)
 library(caTools)
 
-df <- read.csv('D:\\R-Course-HTML-Notes\\R-for-Data-Science-and-Machine-Learning\\Training Exercises\\Machine Learning Projects\\CSV files for ML Projects\\loan_data.csv')
+df <- read.csv('CSV files for ML Projects\\loan_data.csv')
 str(df)
 
 #Convert the following columns to categorical data 
