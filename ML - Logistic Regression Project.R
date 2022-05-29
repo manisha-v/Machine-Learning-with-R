@@ -4,7 +4,7 @@ library(dplyr)
 library(Amelia)
 library(caTools)
 
-df <- read.csv('D:\\R-Course-HTML-Notes\\R-for-Data-Science-and-Machine-Learning\\Training Exercises\\Machine Learning Projects\\CSV files for ML Projects\\adult_sal.csv')
+df <- read.csv('CSV files for ML Projects\\adult_sal.csv')
 head(df)
 df <- select(df,-X)
 head(df)
