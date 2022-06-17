@@ -10,8 +10,7 @@ df <- select(df,-X)
 head(df)
 str(df)
 
-#converting some columns in factors to get the same structure as shown in project solution
-#this part is not in solution
+#converting some columns in factors
 df$type_employer <- factor(df$type_employer)
 df$education <- factor(df$education)
 df$marital <- factor(df$marital)
@@ -113,9 +112,9 @@ df$occupation <- factor(df$occupation)
 
 #Play around with the missmap function from the Amelia package
 missmap(df)
-#you probably also noticed that there is a bunch of y labels, get rid of them
 missmap(df, y.at = c(1), y.labels = c(''), col = c('yellow','black'))
 
+#you probably also noticed that there is a bunch of y labels with missing values, get rid of them
 #Use na.omit() to omit NA data from the adult data frame.
 df <- na.omit(df)
 str(df)
@@ -133,7 +132,6 @@ ggplot(df, aes(hr_per_week)) + geom_histogram(fill = 'cyan', col = 'black') + th
 df <- rename(df, 'region' = country)
 
 #Create a barplot of region with the fill color defined by income class. 
-#Optional: Figure out how rotate the x axis text for readability
 ggplot(df, aes(region)) + geom_bar(aes(fill = income)) + theme_bw() + 
   theme(axis.text.x = element_text(angle = 90))
 
