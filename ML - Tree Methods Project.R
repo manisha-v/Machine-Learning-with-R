@@ -6,6 +6,7 @@ library(rpart.plot)
 library(randomForest)
 
 df <- College
+head(df)
 
 ######
 # EDA
@@ -26,6 +27,7 @@ ggplot(df, aes(Grad.Rate)) + geom_histogram(aes(fill = Private), col = 'black', 
 #What college had a Graduation Rate of above 100% ?
 
 filter(df, Grad.Rate > 100)$Grad.Rate
+df[df$Grad.Rate>100,]$Grad.Rate
 
 #Change that college's grad rate to 100%
 
@@ -47,6 +49,7 @@ test <- subset(df, splt == F)
 #Use the rpart library to build a decision tree to predict whether or not a school is Private.
 
 tree <- rpart(Private ~ ., method = 'class', train)
+tree
 pred <- predict(tree, test)
 head(pred)
 
@@ -58,7 +61,14 @@ test$pred1 <- pred$Private
 
 #Now use table() to create a confusion matrix of your tree model.
 
-table(test$Private, test$pred1)
+cm <- table(test$Private, test$pred1)
+cm
+#accuracy
+(cm[1,1]+cm[2,2])/(sum(cm))
+#precision
+cm[2,2]/sum(cm[,2])
+#recall
+cm[2,2]/sum(cm[2,])
 
 #Use the rpart.plot library and the prp() function to plot out your tree model.
 
@@ -71,6 +81,7 @@ prp(tree)
 #Now use randomForest() to build out a model to predict Private class. Add importance=TRUE as a 
 #parameter in the model. (Use help(randomForest) to find out what this does.
 
+help("randomForest")
 set.seed(10)
 rf.model <- randomForest(Private ~ ., train, importance = T)
 rf.model
@@ -86,4 +97,11 @@ rf.model$importance
 #Now use your random forest model to predict on your test set!
 
 test$pred2 <- predict(rf.model, test)
-table(test$Private, test$pred2)
+cm2 <- table(test$Private, test$pred2)
+cm2
+#accuracy
+(cm2[1,1]+cm2[2,2])/(sum(cm2))
+#precision
+cm2[2,2]/sum(cm2[,2])
+#recall
+cm2[2,2]/sum(cm2[2,])
