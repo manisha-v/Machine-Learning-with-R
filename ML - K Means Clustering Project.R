@@ -23,17 +23,17 @@ str(df)
 #Create a Histogram of residual sugar from the wine data. Color by red and white wines.
 
 ggplot(df, aes(residual.sugar)) + geom_histogram(aes(fill = factor(label)), col = 'black', 
-                                  bins = 50) + scale_fill_manual(values = c('red', 'white'))
+                        bins = 50) + scale_fill_manual(values = c('red', 'white')) + theme_dark()
 
 #Create a Histogram of citric.acid from the wine data. Color by red and white wines.
 
 ggplot(df, aes(citric.acid)) + geom_histogram(aes(fill = factor(label)), col = 'black', 
-                                bins = 50) + scale_fill_manual(values = c('red', 'white'))
+                    bins = 50) + scale_fill_manual(values = c('red', 'white'))+ theme_dark()
 
 #Create a Histogram of alcohol from the wine data. Color by red and white wines.
 
 ggplot(df, aes(alcohol)) + geom_histogram(aes(fill = factor(label)), col = 'black', 
-                                bins = 50) + scale_fill_manual(values = c('red', 'white'))
+                     bins = 50) + scale_fill_manual(values = c('red', 'white'))+ theme_dark()
 
 #Create a scatterplot of residual.sugar versus citric.acid, color by red and white wine.
 
@@ -62,6 +62,9 @@ wine.clus <- kmeans(clus.data, 2, nstart = 15)
 #Print out the wine.cluster Cluster Means and explore the information.
 
 wine.clus$centers
+
+# let us have a look on clustors now
+clusplot(clus.data, wine.clus$cluster, main = 'Clusplot', color = TRUE, shade = TRUE)
 
 #############
 ##### EVALUATING THE CLUSTERS
