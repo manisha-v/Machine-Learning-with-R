@@ -1,7 +1,6 @@
 library(neuralnet)
 library(ggplot2)
 library(caTools)
-library()
 
 df <- read.csv('CSV files for ML Projects\\bank_note_data.csv')
 head(df)
@@ -21,8 +20,7 @@ test <- subset(df, splt == F)
 #neurons (hidden=10)
 
 n <- names(df)
-form <- as.formula(paste('Class ~ ', paste(n[!n %in% 'Class'], collapse = ' + ')))
-nn <- neuralnet(form, train, hidden = 10, linear.output = F)
+nn <- neuralnet(Class ~ .- Class, train, hidden = 10, linear.output = F)
 
 plot(nn)
 
